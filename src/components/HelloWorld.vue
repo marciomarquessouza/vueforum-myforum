@@ -1,56 +1,21 @@
 <template>
-  <div>
-    <div v-for="thread in threads" :key="thread.key">
-      <div class="col-large push-top">
-
-          <h1>{{ thread.title }}</h1>
-
-          <div class="post-list">
-
-              <div v-for="postId in thread.posts"  :key="postId.key" class="post">
-
-                  <div class="user-info">
-                      <a href=# class="user-name">{{ users[posts[postId].userId].name }}</a>
-
-                      <a href="profile.html#profile-details">
-                          <img class="avatar-large"
-                          :src="users[posts[postId].userId].avatar" alt="">
-                      </a>
-
-                      <p class="desktop-only text-small">107 posts</p>
-
-                      <span class="online desktop-only">online</span>
-
-                  </div>
-
-                  <div class="post-content">
-                      <div>
-                        <p>
-                          {{ posts[postId].text }}
-                        </p>
-                      </div>
-                  </div>
-
-                  <div class="post-date text-faded">
-                      {{ posts[postId].publishedAt }}
-                  </div>
-
-              </div>
-
-          </div>
-      </div>
-
-    </div>
+  <div class="col-full">
+    <h1>Ana Maria Nerd</h1>
+    <ThreadList :threads="threads" />
   </div>
 </template>
 
 <script>
 import sourceData from '@/data.json';
+import ThreadList from './ThreadList';
 
 export default {
+  components: {
+    ThreadList,
+  },
   data() {
     return {
-      threads: sourceData.threads,
+      threads: Object.values(sourceData.threads),
       posts: sourceData.posts,
       users: sourceData.users,
     };
