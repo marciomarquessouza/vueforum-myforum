@@ -1,7 +1,7 @@
 <template>
-  <div class="col-full">
-    <h1>Page Not Found</h1>
-    <p>Sorry, we coudn't find out your content. Got to
+  <div :class="$style.centeredBody">
+    <h1 :class="$style.headingLarge">Page Not Found</h1>
+    <p :class="$style.bodyTextLarge">Sorry, we coudn't find out your content. Go to
       <router-link :to="{name:'PageHome'}">
         Home
       </router-link>
@@ -10,15 +10,18 @@
   </div>
 </template>
 
-<style scoped>
-  h1 {
+<style module>
+  .headingLarge {
     font-size: 100px;
   }
-  p {
+  .bodyTextLarge {
     font-size: 50px;
     font-weight: 100px;
   }
-  div {
+  .centeredBody {
     text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 </style>
