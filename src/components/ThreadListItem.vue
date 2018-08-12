@@ -7,7 +7,7 @@
               </router-link>
           </p>
           <p class="text-faded text-xsmall">
-              By <a href="#">{{ user.name }}</a>, yesterday.
+              By <a href="#">{{ user.name }}</a>, <AppDate :timestamp="thread.publishedAt"/>.
           </p>
       </div>
 
@@ -31,6 +31,7 @@
 <script>
 
 import sourceData from '@/data.json';
+import AppDate from '@/components/AppDate';
 
 export default {
   props: {
@@ -38,6 +39,9 @@ export default {
       required: true,
       type: Object,
     },
+  },
+  components: {
+    AppDate,
   },
   computed: {
     repliesCount() {

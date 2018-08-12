@@ -17,18 +17,14 @@
             </p>
           </div>
       </div>
-
-      <div class="post-date text-faded"
-            :title="post.publishedAt | humanFriendlyDate">
-          {{ post.publishedAt | difHumanFriendly }}
-      </div>
+      <AppDate class="post-date text-faded" :timestamp="post.publishedAt" />
   </div>
 </template>
 
 <script>
 
 import sourceData from '@/data.json';
-import moment from 'moment';
+import AppDate from '@/components/AppDate';
 
 export default {
   props: {
@@ -37,20 +33,15 @@ export default {
       type: Object,
     },
   },
+  components: {
+    AppDate,
+  },
   computed: {
     user() {
       return sourceData.users[this.post.userId];
     },
     userPosts() {
       return Object.keys(this.user.posts).length;
-    },
-  },
-  filters: {
-    humanFriendlyDate(date) {
-      return moment.unix(date).locale('pt-BR').format('DD MMMM YYYY, h:mm:ss a');
-    },
-    difHumanFriendly(date) {
-      return moment.unix(date).locale('pt-BR').fromNow();
     },
   },
 };
