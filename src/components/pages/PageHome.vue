@@ -1,6 +1,6 @@
 <template>
-  <div class="col-full">
-    <h1>Ana Maria Nerd</h1>
+  <div class="col-full push-top">
+    <h1>Blue Rocket Forum</h1>
     <CategoryList :categories="categories"/>
   </div>
 </template>
