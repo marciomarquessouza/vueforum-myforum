@@ -14,13 +14,13 @@
         <ul>
 
             <li class="navbar-user">
-                <a href="#">
-                    <img class="avatar-small" :src="user.avatar" alt="">
-                    <span>
-                        {{ user.name}}
-                        <img class="icon-profile" src="assets/img/svg/arrow-profile.svg" alt="">
-                    </span>
-                </a>
+              <router-link :to="{ name: 'Profile' }">
+                <img class="avatar-small" :src="user.avatar" alt="">
+                <span>
+                    {{ user.name}}
+                    <img class="icon-profile" src="assets/img/svg/arrow-profile.svg" alt="">
+                </span>
+              </router-link>
 
                 <div id="user-dropdown">
                     <div class="triangle-drop"></div>
